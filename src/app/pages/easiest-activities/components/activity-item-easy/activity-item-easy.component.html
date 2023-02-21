@@ -1,0 +1,16 @@
+<ion-card [button]="!shouldDisplayEdit" (click)="onItemClick()">
+  <ion-card-header>
+    <ion-card-title>{{year}}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <div style="display: flex; flex-direction: row; gap: 10px">
+      <ion-list>
+        <ion-item *ngFor="let movie of movieArray">
+          <div>Director: {{movie.name}}</div>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-card-content>
+</ion-card>
+

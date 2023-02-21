@@ -1,0 +1,52 @@
+.edit-icon {
+  font-size: 24px;
+  color: white
+}
+.delete-icon {
+  font-size: 24px;
+  color: white
+}
+ion-item {
+  ion-avatar{
+    --border-radius: 20px;
+    width: 56px;
+    height: 56px;
+    margin: 0px;
+  }
+  ion-grid {
+    ion-col {
+      --ion-grid-column-padding: 0px;
+    }
+    .last-row {
+      padding-top: 10px;
+    }
+    .title {
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .last-time-played {
+      font-weight: 400;
+      font-size: 12px;
+      color: var(--grey-1);
+      text-align: end;
+    }
+    .producer{
+      font-weight: 400;
+      font-size: 14px;
+      color: var(--grey-2);
+    }
+    .platform {
+      font-weight: 400;
+      font-size: 14px;
+      color: var(--ion-color-primary);
+    }
+    .price {
+      font-weight: 400;
+      font-size: 14px;
+      color: var(--ion-color-primary);
+      text-align: end;
+      padding-bottom: 8px;
+    }
+  }
+}
+

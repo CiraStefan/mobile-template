@@ -1,0 +1,43 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-button class="ion-no-padding" fill="none" (click)="navigateBack()">Back</ion-button>
+    <ion-title>Add Activity</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="spinner-container">
+    <ion-spinner name="circular" *ngIf="loading$ | async"></ion-spinner>
+  </div>
+  <form [formGroup]="movieForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Name" formControlName="name">
+      <mat-error *ngIf="movieForm.get('name')?.invalid">{{getErrorMessage('name')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input matInput placeholder="Description" formControlName="description">
+      <mat-error *ngIf="movieForm.get('description')?.invalid">{{getErrorMessage('description')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Genre</mat-label>
+      <input matInput placeholder="Genre" formControlName="genre">
+      <mat-error *ngIf="movieForm.get('genre')?.invalid">{{getErrorMessage('genre')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Director</mat-label>
+      <input matInput formControlName="director">
+      <mat-error *ngIf="movieForm.get('director')?.invalid">{{getErrorMessage('date')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Year</mat-label>
+      <input type="number" matInput placeholder="Year" formControlName="year">
+      <mat-error *ngIf="movieForm.get('year')?.invalid">{{getErrorMessage('time')}}</mat-error>
+    </mat-form-field>
+
+    <ion-button [disabled]="movieForm.invalid ? true : false" (click)="insertMovie()">
+      Submit movie
+    </ion-button>
+  </form>
+</ion-content>

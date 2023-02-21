@@ -1,0 +1,18 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-button class="ion-no-padding" fill="none" (click)="navigateBack()">Back</ion-button>
+    <ion-title>Movies By Year</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="display: flex; flex-direction: column;">
+  <div class="spinner-container">
+    <ion-spinner name="circular" *ngIf="loading$ | async"></ion-spinner>
+  </div>  
+  <ion-list style="display: flex; flex-direction: column;">
+    <ion-item *ngFor="let yearKey of this.activeYearMovies.keys()">
+        <app-activity-item-easy [year]="yearKey" [movieArray]="this.activeYearMovies.get(yearKey)">
+        </app-activity-item-easy>
+    </ion-item>
+  </ion-list>
+</ion-content>

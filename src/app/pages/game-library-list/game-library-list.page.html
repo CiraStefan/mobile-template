@@ -1,0 +1,41 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Your Collection</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="spinner-container">
+    <ion-spinner name="circular" *ngIf="loading$ | async"></ion-spinner>
+  </div>
+  <ion-list>
+    <div class="item-with-margin" *ngFor="let genre of (genresList$ | async)">
+      <ion-item button (click)="expandGenre(genre.name)">
+        <ion-label>
+          {{genre.name}}
+        </ion-label>
+      </ion-item>
+      <ion-list class="activities-list" *ngIf="genre.name === currentlyExpanded">
+        <app-game-item *ngFor="let movie of (moviesByGenre$ | async)" [movie]="movie" (deleteGameEmitter)="onDeleteMovie($event)">
+        </app-game-item>
+      </ion-list>
+    </div>
+  </ion-list>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <div class="button-container">
+      <ion-button shape="circle" class="ion-no-padding" (click)="navigateToAddMovie()">
+        <ion-icon class="plus-icon" slot="icon-only" name="add-outline">
+
+        </ion-icon>
+      </ion-button>
+      <ion-button shape="circle" class="ion-no-padding" (click)="navigateToMoviesByYear()">
+        <ion-icon class="plus-icon" slot="icon-only" name="videocam-outline">
+
+        </ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
